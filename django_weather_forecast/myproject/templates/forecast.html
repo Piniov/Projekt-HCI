@@ -23,14 +23,16 @@
       border-style: none;
       padding: 8px 18px;
       line-height: 200%;
-      font-size: 20px;
-      border-radius: 18px;
+      font-size: 25px;
+      border-radius: 14px;
       box-shadow: 0 0 0 2px white, 0 0 0 6px #3385ff;
       background-color: #3385ff;
       transition: 0.5s;
       cursor: pointer;
       font-family: arial;
       text-transform: uppercase;
+      color:white;
+      text-decoration: none;
     }
     .bt:hover {
       box-shadow: 0 0 0 3px white, 0 0 0 8px #3385ff;
@@ -39,8 +41,8 @@
     .baton {
       padding: 10px 30px;
       border-style: none;
-      line-height: 200%;
-      font-size: 20px;
+      line-height: 100%;
+      font-size: 19px;
       border-radius: 18px;
       box-shadow: 0 0 0 2px white, 0 0 0 6px #3385ff;
       background-color: #3385ff;
@@ -68,9 +70,9 @@
 </head>
 
 <body>
-
-<button class = "bt"><b><a href="javascript:location.reload()" class="link1">Find another cities!</a></b></button>
-<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();" class="link2">Back</A></b></button>
+<br>
+<b><a href="javascript:location.reload()" class="bt">Find another cities!</a></b>
+<b><a href="javascript:history.back();" class="baton" style="position: absolute; bottom: 15px; right: 15px;">Back</A></b></button>
 <p><b> Information retrieved: {{reception_time}}<br>
 Temperature in {{city}} ({{country}}) is: {{temperature}} °C.<br>
 {{cloud_coverage}}% of the sky is covered by clouds.
@@ -80,5 +82,5 @@ Temperature in {{city}} ({{country}}) is: {{temperature}} °C.<br>
 <p>
   <img src='{{link}}' width="365" height="325">
 </p>
-<button class = "bt"><b><a href="{{link_html}}" class="link1" target=blank>Here you can find more information about the city</a></b></button>
+<b><a href="{{link_html}}" class="bt" target=blank>Here you can find more information about the city</a></b></button>
 {% endblock %}
