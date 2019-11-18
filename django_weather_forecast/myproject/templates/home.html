@@ -34,6 +34,14 @@
       box-shadow: 0 0 0 6px white, 0 0 0 12px #3385ff;
       border-radius: 150px;
     }
+    .link1 {
+      color: white;
+      text-decoration:none;
+    }
+    .link2 {
+      color: white;
+      text-decoration:none;
+    }
 
 
   </style>
@@ -41,9 +49,9 @@
 <body>
 
 <ul>
-  <button class="btn"><b><a href="{% url 'about' %}">About our APP</a></b></button>
+  <button class="btn"><b><a href="{% url 'about' %}" class="link1">About our APP</a></b></button>
 <br>
-  <button class="btn"><b><a href="{% url 'forecast' %}">Here you can check the weather around the world!</a></b></button>
+  <button class="btn"><b><a href="{% url 'forecast' %}" class="link2">Here you can check the weather around the world!</a></b></button>
 </ul>
 </body>
 {% endblock %}
