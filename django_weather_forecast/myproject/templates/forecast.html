@@ -10,7 +10,7 @@
       border-radius: 30px;
     }
     p {
-      margin-top: 40px;
+      margin-top: 36px;
       color: white;
       text-shadow: 1px 0px #3385ff;
       font-size: 28px;
@@ -48,10 +48,20 @@
       cursor: pointer;
       font-family: arial;
       text-transform: uppercase;
+      color:white;
+      text-decoration: none;
     }
     .baton:hover {
       box-shadow: 0 0 0 3px white, 0 0 0 8px #3385ff;
       border-radius: 120px;
+    }
+    .link1 {
+      color:white;
+      text-decoration: none;
+    }
+    .link2 {
+      color:white;
+      text-decoration: none;
     }
 
   </style>
@@ -59,16 +69,16 @@
 
 <body>
 
-<button class = "bt"><b><a href="javascript:location.reload()">Find another cities!</a></b></button>
-<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();">Back</A></b></button>
-<p><b> <!--pokazuje datę pobrania informacji--->Informacja pobrana: {{reception_time}}<br><br>
-Temperatura w <!--pokazuje temperaturę pobraną z pliku views.py--->{{city}} ({{country}}) wynosi: <!--nazwa miasta--->{{temperature}} stopni Celsjusza.<br>
-Zachmurzenie na poziomie {{cloud_coverage}}%.
+<button class = "bt"><b><a href="javascript:location.reload()" class="link1">Find another cities!</a></b></button>
+<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();" class="link2">Back</A></b></button>
+<p><b> Information retrieved: {{reception_time}}<br>
+Temperature in {{city}} ({{country}}) is: {{temperature}} °C.<br>
+{{cloud_coverage}}% of the sky is covered by clouds.
 </b></p>
 
 </body>
 <p>
-  <img src='{{link}}' width="420" height="380">
+  <img src='{{link}}' width="365" height="325">
 </p>
-<a href="{{link_html}}" target='blank'>Here you can find more information about the city</a>
+<button class = "bt"><b><a href="{{link_html}}" class="link1" target=blank>Here you can find more information about the city</a></b></button>
 {% endblock %}
