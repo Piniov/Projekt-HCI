@@ -5,8 +5,6 @@ import pandas as pd
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
-import requests
-
 
 def home(request):
     print('Home')
@@ -37,14 +35,9 @@ def forecast(request):
             link_html = 'https://en.wikipedia.org/wiki/'+city
             html = urlopen(link_html)
             bs = BeautifulSoup(html, 'html.parser')
-            page = requests.get(link_html)
-            soup = BeautifulSoup(page.text, 'html.parser')
-            if soup.find("city") != -1:
-                image = bs.find('img', {'src':re.compile('.jpg')})
-                link = str(image['src'])
-                break
-            else:
-                pass
+            image = bs.find('img', {'src':re.compile('.jpg')})
+            link = str(image['src'])
+            break
         except:
             pass
     #renderuje forecast.html i wysyła do niego dane
