@@ -8,7 +8,10 @@
         color: white;
         text-shadow: 1px 0px #3385ff;
         text-align: center;
-        text-size: 100px;
+        font-size: 20px;
+      }
+      p {
+        font-size: 28px;
       }
       .baton {
         padding: 10px 30px;
@@ -27,15 +30,27 @@
         box-shadow: 0 0 0 3px white, 0 0 0 8px #3385ff;
         border-radius: 120px;
       }
+      .font {
+        font-size: 18px;
+      }
+      .link {
+        color:white;
+        text-decoration: none;
+      }
 
     </style>
   </head>
   <body>
-<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();">Back</A></b></button>
-  <h1>Cześć i czołem!<h1>
-    <p>Jest 5 w nocy, nudzi Ci się i zastanawiasz się, czym możesz zająć swoje nudne życie?<br>
-      Superancko, jesteś w dobrym miejscu, sprawdź sobie pogodę w przeróżnych zakątkach świata!<br>
-      Niezapomniane przeżycia gwarantowane :)</p>
+<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();" class="link">Back</A></b></button>
+  <h1>Hi and hello!<h1>
+    <p>It's 5:00 a.m., you're bored and you're wondering what you can do in your boring life?<br>
+      Lovely, you're in a good place, check out the weather in all corners of the world!<br>
+      Unforgettable experiences guaranteed :)<br><br>
+      We found it boring to write names of well-known cities,<br>
+      so we created a generator that draws a city from a pool of more than twenty
+      thousand different cities scattered around the world.<br><br></p>
+      <p class="font">This page is made by: Dawid Rożnowski and Jan Mizerka.</p>
+
   </body>
 </html>
 {% endblock %}
