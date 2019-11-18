@@ -45,5 +45,6 @@ def forecast(request):
                 pass
         except:
             pass
+    link_html = 'https://en.wikipedia.org/wiki/'+city
     #renderuje forecast.html i wysyła do niego dane
-    return render(request, 'forecast.html',{'temperature': temperature,'city':city, 'link':link,'reception_time':reception_time,'rain_volume':rain_volume, "cloud_coverage":cloud_coverage, "country":country})
+    return render(request, 'forecast.html',{'temperature': temperature,'city':city, 'link':link,'reception_time':reception_time,'rain_volume':rain_volume, "cloud_coverage":cloud_coverage, "country":country,"link_html":link_html})
