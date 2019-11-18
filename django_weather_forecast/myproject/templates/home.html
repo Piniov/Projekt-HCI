@@ -22,12 +22,14 @@
       text-transform: uppercase;
       margin-top: 100px;
       border-style: none;
-      border-radius: 40px;
+      border-radius: 30px;
       box-shadow: 0 0 0 4px white, 0 0 0 10px #3385ff;
       background-color: #3385ff;
       font-family: arial;
       transition: 0.4s;
       cursor: pointer;
+      color: white;
+      text-decoration:none;
     }
 
     .btn:hover {
@@ -48,10 +50,10 @@
 </head>
 <body>
 
-<ul>
-  <button class="btn"><b><a href="{% url 'about' %}" class="link1">About our APP</a></b></button>
+<ul><br><br><br><br><br><br><br><br>
+<b><a href="{% url 'about' %}" class="btn">About our APP</a></b><br><br><br><br><br><br><br><br><br>
 <br>
-  <button class="btn"><b><a href="{% url 'forecast' %}" class="link2">Here you can check the weather around the world!</a></b></button>
+<b><a href="{% url 'forecast' %}" class="btn">Here you can check the weather around the world!</a></b>
 </ul>
 </body>
 {% endblock %}
