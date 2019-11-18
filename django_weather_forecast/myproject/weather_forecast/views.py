@@ -5,6 +5,7 @@ import pandas as pd
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
+import requests
 
 
 def home(request):
@@ -16,8 +17,9 @@ def about(request):
     print('About')
     return render(request, 'about.html')
 
+
 def forecast(request):
-    owm = pyowm.OWM('94d788527f60c0cab020f0eddc3a0518')
+    owm = pyowm.OWM('4689b1067ed6ca8749a8d83085ac478f')
     cities = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['name'],squeeze = True)
     countries = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['country'],squeeze = True)
     while True:
@@ -32,22 +34,19 @@ def forecast(request):
             reception_time = observation.get_reception_time('iso')
             rain_volume = weather.get_rain()
             cloud_coverage = weather.get_clouds()
-            try:
-                #dołącza wylosowaną nazwę miasta do linku z wikipedii i pobiera pierwszy obraz jaki znajdzie
-                html = urlopen('https://en.wikipedia.org/wiki/'+city)
-                bs = BeautifulSoup(html, 'html.parser')
-                try:
-                    bs.find("city")
-                    image = bs.find('img', {'src':re.compile('.jpg')})
-                    link = str(image['src'])
-                    break
-                except:
-                    pass
-            #jeżeli api nie znajdzie danych pogodowych dla wyloswanego miasta lub nie zadziała link do wikipedii losuje jeszcze raz miasto
-            except:
+            link_html = 'https://en.wikipedia.org/wiki/'+city
+            html = urlopen(link_html)
+            bs = BeautifulSoup(html, 'html.parser')
+            page = requests.get(link_html)
+            soup = BeautifulSoup(page.text, 'html.parser')
+            if soup.find("city") != -1:
+                image = bs.find('img', {'src':re.compile('.jpg')})
+                link = str(image['src'])
+                break
+            else:
                 pass
         except:
             pass
-    link_html = 'https://en.wikipedia.org/wiki/'+city
     #renderuje forecast.html i wysyła do niego dane
-    return render(request, 'forecast.html',{'temperature': temperature,'city':city, 'link':link,'reception_time':reception_time,'rain_volume':rain_volume, "cloud_coverage":cloud_coverage, "country":country,"link_html":link_html})
+    link_html = 'https://en.wikipedia.org/wiki/'+city
+    return render(request, 'forecast.html',{'temperature': temperature,'city':city, 'link':link,'reception_time':reception_time,'rain_volume':rain_volume, "cloud_coverage":cloud_coverage, "country":country, "link_html":link_html})
