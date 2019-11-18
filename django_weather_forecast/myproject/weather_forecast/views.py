@@ -17,11 +17,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-def forecast(request):
-    owm = pyowm.OWM('94d788527f60c0cab020f0eddc3a0518')
-    cities = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['name'],squeeze = True)
-    countries = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['country'],squeeze = True)
-    while True:
         city = random.choice(cities)
         nr_index =(list(cities)).index(city)
         country = countries[nr_index]
@@ -37,9 +32,13 @@ def forecast(request):
                 #dołącza wylosowaną nazwę miasta do linku z wikipedii i pobiera pierwszy obraz jaki znajdzie
                 html = urlopen('https://en.wikipedia.org/wiki/'+city)
                 bs = BeautifulSoup(html, 'html.parser')
-                image = bs.find('img', {'src':re.compile('.jpg')})
-                link = str(image['src'])
-                break
+                try:
+                    bs.find("city")
+                    image = bs.find('img', {'src':re.compile('.jpg')})
+                    link = str(image['src'])
+                    break
+                except:
+                    pass
             #jeżeli api nie znajdzie danych pogodowych dla wyloswanego miasta lub nie zadziała link do wikipedii losuje jeszcze raz miasto
             except:
                 pass
