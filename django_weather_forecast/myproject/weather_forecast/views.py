@@ -16,7 +16,11 @@ def about(request):
     print('About')
     return render(request, 'about.html')
 
-
+def forecast(request):
+    owm = pyowm.OWM('94d788527f60c0cab020f0eddc3a0518')
+    cities = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['name'],squeeze = True)
+    countries = pd.read_csv('./myproject/weather_forecast/world-cities.csv', usecols = ['country'],squeeze = True)
+    while True:
         city = random.choice(cities)
         nr_index =(list(cities)).index(city)
         country = countries[nr_index]
