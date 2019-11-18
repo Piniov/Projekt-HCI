@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      text-align: center;
+      color:	#2A4CF1;
+      text-shadow: 1px 0px white;
+    }
+
+    .btn {
+      padding: 20px 40px;
+      line-height: 200%;
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-top: 100px;
+      border-style: none;
+      border-radius: 40px;
+      box-shadow: 0 0 0 4px white, 0 0 0 10px #3385ff;
+      background-color: #3385ff;
+      font-family: arial;
+      transition: 0.4s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 0 6px white, 0 0 0 12px #3385ff;
+      border-radius: 150px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<ul>
+  <button class="btn"><b><a href="{% url 'about' %}">About our APP</a></b></button>
+<br>
+  <button class="btn"><b><a href="{% url 'forecast' %}">Here you can check the weather around the world!</a></b></button>
+</ul>
+</body>
+{% endblock %}

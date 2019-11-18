@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+  <head>
+    <style>
+      body {
+        color: white;
+        text-shadow: 1px 0px #3385ff;
+        text-align: center;
+        text-size: 100px;
+      }
+      .baton {
+        padding: 10px 30px;
+        border-style: none;
+        line-height: 200%;
+        font-size: 20px;
+        border-radius: 18px;
+        box-shadow: 0 0 0 2px white, 0 0 0 6px #3385ff;
+        background-color: #3385ff;
+        transition: 0.5s;
+        cursor: pointer;
+        font-family: arial;
+        text-transform: uppercase;
+      }
+      .baton:hover {
+        box-shadow: 0 0 0 3px white, 0 0 0 8px #3385ff;
+        border-radius: 120px;
+      }
+
+    </style>
+  </head>
+  <body>
+<button class="baton" style="position: absolute; bottom: 15px; right: 15px;"><b><a href="javascript:history.back();">Back</A></b></button>
+  <h1>Cześć i czołem!<h1>
+    <p>Jest 5 w nocy, nudzi Ci się i zastanawiasz się, czym możesz zająć swoje nudne życie?<br>
+      Superancko, jesteś w dobrym miejscu, sprawdź sobie pogodę w przeróżnych zakątkach świata!<br>
+      Niezapomniane przeżycia gwarantowane :)</p>
+  </body>
+</html>
+{% endblock %}
